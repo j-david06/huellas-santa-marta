@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Crear Reporte - Huellas Santa Marta</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;600;700&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e4e2e2",
+                        "outline-variant": "#ddc0ba",
+                        "background": "#fbf9f8",
+                        "surface-variant": "#e4e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#2f1500",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdcc3",
+                        "primary-fixed-dim": "#ffb4a5",
+                        "surface-container": "#efeded",
+                        "surface-bright": "#fbf9f8",
+                        "primary": "#9f402d",
+                        "inverse-surface": "#303030",
+                        "on-tertiary-fixed-variant": "#6e3900",
+                        "on-secondary-fixed": "#001f27",
+                        "outline": "#89726d",
+                        "secondary-container": "#a2e7fd",
+                        "on-secondary-container": "#1b697c",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#e2725b",
+                        "on-background": "#1b1c1c",
+                        "surface-container-low": "#f5f3f3",
+                        "on-primary-fixed-variant": "#802918",
+                        "surface-container-high": "#eae8e7",
+                        "inverse-primary": "#ffb4a5",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#004e5e",
+                        "tertiary": "#8d4f11",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed-dim": "#ffb77d",
+                        "surface-tint": "#9f402d",
+                        "on-tertiary-container": "#462200",
+                        "primary-fixed": "#ffdad3",
+                        "secondary-fixed-dim": "#8cd1e6",
+                        "on-primary-container": "#5a0d02",
+                        "on-primary-fixed": "#3e0500",
+                        "surface": "#fbf9f8",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#56423e",
+                        "surface-dim": "#dbd9d9",
+                        "secondary-fixed": "#b1ecff",
+                        "tertiary-container": "#cb8241",
+                        "secondary": "#16677a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "base": "8px",
+                        "margin-desktop": "40px",
+                        "stack-lg": "48px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Nunito Sans"],
+                        "caption": ["Nunito Sans"],
+                        "body-lg": ["Nunito Sans"],
+                        "headline-md": ["Quicksand"],
+                        "headline-xl": ["Quicksand"],
+                        "body-md": ["Nunito Sans"],
+                        "headline-lg": ["Quicksand"],
+                        "headline-lg-mobile": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Hide scrollbar for clean horizontal scrolling areas */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen pb-[100px] md:pb-0">
+<!-- TopAppBar (From JSON) -->
+<header class="fixed top-0 w-full z-50 bg-background shadow-sm flex items-center justify-between px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">pets</span>
+<span class="font-headline-md text-headline-md text-primary tracking-tight">Huellas Santa Marta</span>
+</div>
+<div class="hidden md:flex gap-4 items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-2 rounded-full" href="#">Inicio</a>
+<a class="font-label-md text-label-md text-primary bg-primary-container/20 px-3 py-2 rounded-full" href="#">Reportar</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-2 rounded-full" href="#">Mapa</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-2 rounded-full" href="#">Alertas</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-2 rounded-full" href="#">Perfil</a>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-[800px] mx-auto w-full flex flex-col gap-stack-lg">
+<!-- Header -->
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-background mb-2">Crear Reporte</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Ayúdanos a reunir a las mascotas con sus familias. Completa los detalles a continuación.</p>
+</div>
+<form class="flex flex-col gap-stack-lg">
+<!-- Step 1: Selección de estado -->
+<section class="flex flex-col gap-stack-sm">
+<label class="font-headline-md text-headline-md text-on-background">1. Estado de la Mascota</label>
+<div class="grid grid-cols-2 gap-4">
+<label class="cursor-pointer relative">
+<input checked="" class="peer sr-only" name="status" type="radio" value="lost"/>
+<div class="w-full h-24 rounded-DEFAULT border-2 border-outline-variant bg-surface-container-lowest peer-checked:bg-primary peer-checked:border-primary peer-checked:text-on-primary text-on-surface-variant flex flex-col items-center justify-center gap-2 transition-all shadow-sm peer-checked:shadow-md">
+<span class="material-symbols-outlined text-[32px] peer-checked:fill-current">search</span>
+<span class="font-label-md text-label-md text-[16px]">Perdido</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="status" type="radio" value="found"/>
+<div class="w-full h-24 rounded-DEFAULT border-2 border-outline-variant bg-surface-container-lowest peer-checked:bg-secondary peer-checked:border-secondary peer-checked:text-on-secondary text-on-surface-variant flex flex-col items-center justify-center gap-2 transition-all shadow-sm peer-checked:shadow-md">
+<span class="material-symbols-outlined text-[32px] peer-checked:fill-current">waving_hand</span>
+<span class="font-label-md text-label-md text-[16px]">Encontrado</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Step 2: Subir foto -->
+<section class="flex flex-col gap-stack-sm">
+<label class="font-headline-md text-headline-md text-on-background">2. Subir Foto</label>
+<div class="w-full h-48 rounded-DEFAULT border-2 border-dashed border-outline-variant bg-surface-container hover:bg-surface-container-high transition-colors flex flex-col items-center justify-center gap-2 cursor-pointer group text-on-surface-variant">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center group-hover:bg-outline-variant/30 transition-colors">
+<span class="material-symbols-outlined text-[32px] text-outline">photo_camera</span>
+</div>
+<span class="font-body-md text-body-md">Toca para subir una imagen</span>
+<span class="font-caption text-caption text-outline">Máx 5MB (JPG, PNG)</span>
+</div>
+</section>
+<!-- Step 3: Mapa -->
+<section class="flex flex-col gap-stack-sm">
+<label class="font-headline-md text-headline-md text-on-background">3. Ubicación</label>
+<p class="font-body-md text-body-md text-on-surface-variant">¿Dónde fue visto por última vez?</p>
+<div class="w-full h-64 rounded-DEFAULT overflow-hidden shadow-sm border border-surface-container-highest relative">
+<img class="w-full h-full object-cover" data-alt="A stylized, light-mode interactive street map of Santa Marta, Colombia, featuring soft minimalist colors. The map highlights main roads in soft beige and water bodies in pale teal. A prominent, soft terra-cotta colored location pin drops onto a central neighborhood, surrounded by generous whitespace and subtle, low-elevation shadow effects to evoke a calm, user-friendly digital interface." data-location="Santa Marta, Colombia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvDBFCZGhOBdiKvAL8ZonW6qv6k8ooCMRNfaFKA0lZ-z9qJANkz3N9NxclG5ry6is0nTOkbsjLRHGlZBoFquj1SRDDvtvjEpnWeVk-Uldu3lDNR9VQKajR8d2IHm-HGl5OR11jUhqRDV2yj3B-jMBpeHCfzi-vcDxT7do3a7Sqy24Ush8vucMvrifq16kHhnh8PSeXH9s0vG96PkNPAjeCme_GIOWSizE9kJ0jGD7I9182cM8iwILqGA"/>
+<!-- Overlay input for map search -->
+<div class="absolute top-4 left-4 right-4 bg-surface-container-lowest rounded-full px-4 py-2 flex items-center gap-2 shadow-sm border border-surface-container-highest">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface p-0" placeholder="Buscar dirección..." type="text"/>
+</div>
+</div>
+</section>
+<!-- Step 4: Detalles -->
+<section class="flex flex-col gap-stack-sm">
+<label class="font-headline-md text-headline-md text-on-background">4. Detalles del Animal</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Tipo de animal -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Tipo</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest border-2 border-surface-container-highest rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-0 transition-colors">
+<option>Selecciona un tipo</option>
+<option>Perro</option>
+<option>Gato</option>
+<option>Ave</option>
+<option>Otro</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Color -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Color Principal</label>
+<input class="w-full bg-surface-container-lowest border-2 border-surface-container-highest rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-0 transition-colors placeholder:text-outline" placeholder="Ej. Negro, Blanco con manchas..." type="text"/>
+</div>
+<!-- Raza -->
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface">Raza (Opcional)</label>
+<input class="w-full bg-surface-container-lowest border-2 border-surface-container-highest rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-0 transition-colors placeholder:text-outline" placeholder="Ej. Labrador, Criollo..." type="text"/>
+</div>
+<!-- Señas particulares -->
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface">Señas Particulares</label>
+<input class="w-full bg-surface-container-lowest border-2 border-surface-container-highest rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-0 transition-colors placeholder:text-outline" placeholder="Collar rojo, cicatriz en la oreja..." type="text"/>
+</div>
+</div>
+</section>
+<!-- Step 5: Descripción -->
+<section class="flex flex-col gap-stack-sm">
+<label class="font-headline-md text-headline-md text-on-background">5. Descripción Libre</label>
+<textarea class="w-full bg-surface-container-lowest border-2 border-surface-container-highest rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-0 transition-colors placeholder:text-outline resize-none" placeholder="Proporciona cualquier detalle adicional que pueda ayudar..." rows="4"></textarea>
+</section>
+<!-- Submit Button -->
+<div class="mt-stack-sm">
+<button class="w-full bg-primary text-on-primary font-label-md text-[18px] py-4 rounded-full flex justify-center items-center gap-2 shadow-md hover:bg-primary/90 active:scale-95 transition-all duration-200" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+                    Publicar Reporte
+                </button>
+</div>
+</form>
+</main>
+<!-- BottomNavBar (From JSON) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-lowest shadow-lg rounded-t-lg">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md text-[11px] mt-1">Inicio</span>
+</button>
+<!-- Active State: Reportar -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1.5 active:scale-90 duration-200 shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-label-md text-label-md text-[11px] mt-0.5">Reportar</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-md text-label-md text-[11px] mt-1">Mapa</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-md text-label-md text-[11px] mt-1">Alertas</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md text-[11px] mt-1">Perfil</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Huellas Santa Marta - Inicio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e4e2e2",
+                        "outline-variant": "#ddc0ba",
+                        "background": "#fbf9f8",
+                        "surface-variant": "#e4e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#2f1500",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdcc3",
+                        "primary-fixed-dim": "#ffb4a5",
+                        "surface-container": "#efeded",
+                        "surface-bright": "#fbf9f8",
+                        "primary": "#9f402d",
+                        "inverse-surface": "#303030",
+                        "on-tertiary-fixed-variant": "#6e3900",
+                        "on-secondary-fixed": "#001f27",
+                        "outline": "#89726d",
+                        "secondary-container": "#a2e7fd",
+                        "on-secondary-container": "#1b697c",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#e2725b",
+                        "on-background": "#1b1c1c",
+                        "surface-container-low": "#f5f3f3",
+                        "on-primary-fixed-variant": "#802918",
+                        "surface-container-high": "#eae8e7",
+                        "inverse-primary": "#ffb4a5",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#004e5e",
+                        "tertiary": "#8d4f11",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed-dim": "#ffb77d",
+                        "surface-tint": "#9f402d",
+                        "on-tertiary-container": "#462200",
+                        "primary-fixed": "#ffdad3",
+                        "secondary-fixed-dim": "#8cd1e6",
+                        "on-primary-container": "#5a0d02",
+                        "on-primary-fixed": "#3e0500",
+                        "surface": "#fbf9f8",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#56423e",
+                        "surface-dim": "#dbd9d9",
+                        "secondary-fixed": "#b1ecff",
+                        "tertiary-container": "#cb8241",
+                        "secondary": "#16677a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "base": "8px",
+                        "margin-desktop": "40px",
+                        "stack-lg": "48px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Nunito Sans"],
+                        "caption": ["Nunito Sans"],
+                        "body-lg": ["Nunito Sans"],
+                        "headline-md": ["Quicksand"],
+                        "headline-xl": ["Quicksand"],
+                        "body-md": ["Nunito Sans"],
+                        "headline-lg": ["Quicksand"],
+                        "headline-lg-mobile": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased pb-24 md:pb-0 pt-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background dark:bg-on-background shadow-sm flex items-center justify-between px-margin-mobile h-16 transition-colors md:hidden">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">pets</span>
+<span class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim tracking-tight">Huellas Santa Marta</span>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-150 p-2 rounded-full">
+<span class="material-symbols-outlined">search</span>
+</button>
+</header>
+<!-- Desktop Navigation (Placeholder for Top Nav cluster if md:flex) -->
+<header class="hidden md:flex fixed top-0 w-full z-50 bg-background shadow-sm items-center justify-between px-margin-desktop h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">pets</span>
+<span class="font-headline-md text-headline-md text-primary tracking-tight">Huellas Santa Marta</span>
+</div>
+<nav class="flex gap-6">
+<a class="text-primary font-label-md text-label-md" href="#">Inicio</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Reportar</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Mapa</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Alertas</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Perfil</a>
+</nav>
+<div class="relative">
+<input class="bg-surface-container-low rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary w-64" placeholder="Buscar mascotas..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant">search</span>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop mt-4 md:mt-8 flex flex-col gap-stack-lg">
+<!-- Search & Map Section -->
+<section class="flex flex-col gap-stack-md md:hidden">
+<div class="relative w-full">
+<input class="w-full bg-surface-container-highest border-none rounded-[16px] py-4 pl-12 pr-4 font-body-md text-body-md focus:ring-2 focus:ring-primary text-on-surface shadow-sm" placeholder="Buscar por raza, color, barrio..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-4 text-on-surface-variant">search</span>
+</div>
+<div class="w-full h-48 md:h-64 rounded-xl overflow-hidden relative shadow-sm" data-alt="A stylized, light-themed map of Santa Marta, Colombia, showing streets and coastline. The aesthetic is soft minimalist with a warm sand-colored base and subtle pale blue water. Small, friendly marker pins in Terra-cotta (primary color) and Teal (secondary color) are scattered across the map, indicating pet locations. High contrast, clear, and easy to read." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-33QF6U_kA2ZSCVOQruoEVtrrUTB2vdxcfqBwL9tdSSgcLSCA7lXSB-eikUOa6LvRHFfBLudEw8syamUs_A4U4C_-kTW0Hmnc1Z6nxwWL0eElk_76BjUft2M_0KwBhAB0AzYcKLsiDa3JqFuNawmyBu-4uF9o9HLz15sQVw25oM-162TrSwkfnKjpmo2BlGApf_rmMSkKZUq1KdIKrUA5-VuLjejMUBGhzqN6BdB__WC5OOavGPcVDw')">
+<!-- Overlay markers -->
+<div class="absolute top-1/4 left-1/3 animate-pulse">
+<div class="bg-primary text-white rounded-full p-1 shadow-lg w-8 h-8 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">pets</span>
+</div>
+</div>
+<div class="absolute top-1/2 right-1/4">
+<div class="bg-secondary text-white rounded-full p-1 shadow-lg w-8 h-8 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">pets</span>
+</div>
+</div>
+<div class="absolute bottom-4 right-4">
+<button class="bg-surface-container-lowest p-2 rounded-full shadow-md text-on-surface">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Feed Section -->
+<section class="flex flex-col gap-stack-md">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Reportes Recientes</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1: Perdido -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="A medium close-up photo of a mixed-breed golden dog looking slightly confused on a sunny street in Santa Marta. Soft natural lighting, warm tones, conveying a sense of gentle urgency. The dog wears a blue collar but no tag." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1Kzch3YINb2z1_34dy3FDMRWXViaZoUwL5Xkh5xVMewrqdFiqMPadE6jHLJgLayVRAmb3mKjwYzg9tMfstqtQUOvS4IsRbsDpjs6IIKmf2OrnwmqB_VmW0TWR4qwDH0IKfy1TiQxntLDUgsGncMMGgJKBPTssxyQ5lYiYBX4BduZatCd3SRJ_ilVWkfpQggJyDGGcR9d0y6wz7wZh8RMGVm49Lxl_dDwYTHBDoXALBbA0R2bBrPBQgw"/>
+<div class="absolute top-4 left-4 bg-primary text-white font-label-md text-label-md uppercase px-3 py-1 rounded-full flex items-center h-8">
+                            Perdido
+                        </div>
+</div>
+<div class="p-4 flex flex-col gap-stack-sm flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">Bruno</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Perro • Criollo</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="mt-auto flex flex-col gap-1">
+<div class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>El Rodadero, Santa Marta</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Hace 2 horas</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: Encontrado -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="A clear photo of a small grey tabby cat resting tentatively on a porch. The lighting is soft morning light. The cat looks calm but displaced. Neutral, reassuring visual tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvSWfERh4P7i0yIoMLThas-BJolC4lWLI4KQijPQCP98V8dyjD7uL1HjFuljdMAF_-n5-_Gg_RhQ7H5mD-2RK2lo0YFmkGhGI6uyBTWf79FtgZmRts3oJvpPRl5ex1hDTVa5h92p4tPyIQ3IU_emnuNOUOW860nZ1GjTc4UDTi6RSpAOlgUZ9Q8q5ZTgBalyduPGqFXksELswVg2Nk_PfG8ffbT8o-lIPJ1IOXgoorPPgUOaQ65x_1Og"/>
+<div class="absolute top-4 left-4 bg-secondary text-white font-label-md text-label-md uppercase px-3 py-1 rounded-full flex items-center h-8">
+                            Encontrado
+                        </div>
+</div>
+<div class="p-4 flex flex-col gap-stack-sm flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background italic opacity-75">Sin nombre</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Gato • Mestizo</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="mt-auto flex flex-col gap-1">
+<div class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>Minca</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Hace 5 horas</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3: Perdido -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="A portrait of a black Labrador Retriever with bright, expressive eyes. The dog is in a park setting with green grass in the background. Bright, clear daylight highlighting the dog's features." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf3bw0rNU9--g0tNp6pShL868RlYqvnx7Ucpf9RFEcjArBMruo9roE46mMe3WK1ME8NCEZ657z5zoavyOoWWtQV-MzB1DpNkJldDhFnHDYp4U8YrAqrvx35G7SSRr5rRT-SIrdYdW-6vg7HXVm8j3N83hoEh-ilk7JjGT3cePts4vPGZEemuKaKIMRjXjylJL8ZTbeOSX8MFcGfvfQ8MfSQlyKxZ45rEXOuJ_NmgfB36_dfSQ-OXxwAg"/>
+<div class="absolute top-4 left-4 bg-primary text-white font-label-md text-label-md uppercase px-3 py-1 rounded-full flex items-center h-8">
+                            Perdido
+                        </div>
+</div>
+<div class="p-4 flex flex-col gap-stack-sm flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">Luna</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Perro • Labrador</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="mt-auto flex flex-col gap-1">
+<div class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>Taganga, Santa Marta</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Ayer</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- FAB for reporting -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 bg-primary text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-colors z-40 active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-lowest dark:bg-surface-dim shadow-[0_-4px_12px_rgba(159,64,45,0.08)] rounded-t-lg">
+<!-- Active Item: Inicio -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1.5 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md">Inicio</span>
+</a>
+<!-- Inactive Items -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all rounded-2xl px-4 py-1.5 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1">add_circle</span>
+<span class="font-label-md text-label-md">Reportar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all rounded-2xl px-4 py-1.5 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1">map</span>
+<span class="font-label-md text-label-md">Mapa</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all rounded-2xl px-4 py-1.5 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1">notifications</span>
+<span class="font-label-md text-label-md">Alertas</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all rounded-2xl px-4 py-1.5 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-md text-label-md">Perfil</span>
+</a>
+</nav>
+</body></html>

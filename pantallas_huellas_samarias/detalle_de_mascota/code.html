@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detalle de Reporte - Huellas Santa Marta</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e4e2e2",
+                        "outline-variant": "#ddc0ba",
+                        "background": "#fbf9f8",
+                        "surface-variant": "#e4e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#2f1500",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdcc3",
+                        "primary-fixed-dim": "#ffb4a5",
+                        "surface-container": "#efeded",
+                        "surface-bright": "#fbf9f8",
+                        "primary": "#9f402d",
+                        "inverse-surface": "#303030",
+                        "on-tertiary-fixed-variant": "#6e3900",
+                        "on-secondary-fixed": "#001f27",
+                        "outline": "#89726d",
+                        "secondary-container": "#a2e7fd",
+                        "on-secondary-container": "#1b697c",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#e2725b",
+                        "on-background": "#1b1c1c",
+                        "surface-container-low": "#f5f3f3",
+                        "on-primary-fixed-variant": "#802918",
+                        "surface-container-high": "#eae8e7",
+                        "inverse-primary": "#ffb4a5",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#004e5e",
+                        "tertiary": "#8d4f11",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed-dim": "#ffb77d",
+                        "surface-tint": "#9f402d",
+                        "on-tertiary-container": "#462200",
+                        "primary-fixed": "#ffdad3",
+                        "secondary-fixed-dim": "#8cd1e6",
+                        "on-primary-container": "#5a0d02",
+                        "on-primary-fixed": "#3e0500",
+                        "surface": "#fbf9f8",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#56423e",
+                        "surface-dim": "#dbd9d9",
+                        "secondary-fixed": "#b1ecff",
+                        "tertiary-container": "#cb8241",
+                        "secondary": "#16677a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "base": "8px",
+                        "margin-desktop": "40px",
+                        "stack-lg": "48px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Nunito Sans"],
+                        "caption": ["Nunito Sans"],
+                        "body-lg": ["Nunito Sans"],
+                        "headline-md": ["Quicksand"],
+                        "headline-xl": ["Quicksand"],
+                        "body-md": ["Nunito Sans"],
+                        "headline-lg": ["Quicksand"],
+                        "headline-lg-mobile": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased pb-24 md:pb-12">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background dark:bg-on-background shadow-sm flex items-center justify-between px-margin-mobile h-16 transition-colors">
+<div class="flex items-center gap-4 cursor-pointer active:scale-95 duration-150" onclick="window.history.back()">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="arrow_back">arrow_back</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim tracking-tight">Huellas Santa Marta</h1>
+<div class="w-6"></div> <!-- Spacer for center alignment -->
+</header>
+<main class="pt-16 max-w-[1200px] mx-auto">
+<!-- Hero Image Slider -->
+<div class="relative w-full h-[40vh] md:h-[60vh] bg-surface-container-highest md:rounded-b-lg overflow-hidden md:mt-4 md:rounded-t-lg shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A close-up, high-quality photograph of a Golden Retriever mix dog looking slightly confused on a sunny street in a coastal town. The lighting is bright and natural, typical of a Caribbean day. The background is slightly blurred showing colorful colonial facades. The mood is sympathetic and urgently seeking attention." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMMf7G0yxnET_9GRsgA6B5RkCcXv37KCv4O5vRV9Y7Q6eUgGOBy9SVTtLtyupZhnVnG1kwmda260v-emC7cJvPICj9l2fJCHt3S-2xm9_Qu8b-PgFf1dobiMOpkVhxEvyZF6_4TXZbK7zo_suq4SjG4L3zmXcOnmz5bTJ1kTHyM82d4HRfP7FbuBW62gh4w_kq2fd1J9Ns4E1c1Rlu8X0YVOzbjvAInkvQ1GzVCLvi0elukMhwPZgpHg"/>
+<!-- Gradient Overlay for readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<!-- Status Badge overlay -->
+<div class="absolute top-4 left-4 md:top-6 md:left-6 bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-full uppercase tracking-wider shadow-md">
+                Perdido
+            </div>
+<!-- Slider indicators -->
+<div class="absolute bottom-4 left-0 w-full flex justify-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white opacity-100"></div>
+<div class="w-2 h-2 rounded-full bg-white opacity-50"></div>
+<div class="w-2 h-2 rounded-full bg-white opacity-50"></div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-stack-md grid grid-cols-1 lg:grid-cols-12 gap-stack-lg">
+<!-- Left Column: Details -->
+<div class="lg:col-span-8 flex flex-col gap-stack-md">
+<!-- Header Info -->
+<div class="flex flex-col gap-2">
+<h2 class="font-headline-xl text-headline-xl text-on-background">Bruno</h2>
+<div class="flex items-center gap-2 text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span>Perdido hace 2 días (15 de Octubre, 2023)</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+<span>Cerca del Parque de los Novios, Centro Histórico</span>
+</div>
+</div>
+<!-- Primary Actions -->
+<div class="flex flex-col sm:flex-row gap-stack-sm mt-2">
+<!-- Specific request: Green WhatsApp button. Overriding theme strictly for brand color recognition on this specific user request, using inline style to avoid polluting tailwind classes as per instructions. -->
+<button class="flex-1 flex items-center justify-center gap-2 text-white font-label-md text-label-md py-3 px-6 rounded-full shadow-md active:scale-95 transition-transform" style="background-color: #25D366;">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                        Contactar por WhatsApp
+                    </button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-surface-container-high text-on-surface font-label-md text-label-md py-3 px-6 rounded-full shadow-sm hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+                        Compartir
+                    </button>
+</div>
+<!-- Detailed Characteristics Card -->
+<div class="bg-surface-container-lowest rounded-lg p-stack-md shadow-sm border border-outline-variant/30 mt-4">
+<h3 class="font-headline-md text-headline-md mb-4 text-on-background">Características</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="flex flex-col">
+<span class="font-caption text-caption text-on-surface-variant">Tipo</span>
+<span class="font-body-lg text-body-lg text-on-background">Perro</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-caption text-on-surface-variant">Raza</span>
+<span class="font-body-lg text-body-lg text-on-background">Mestizo / Golden</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-caption text-on-surface-variant">Sexo</span>
+<span class="font-body-lg text-body-lg text-on-background">Macho</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-caption text-on-surface-variant">Tamaño</span>
+<span class="font-body-lg text-body-lg text-on-background">Mediano</span>
+</div>
+</div>
+</div>
+<!-- Description -->
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-md text-headline-md text-on-background">Descripción Adicional</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Bruno es muy dócil pero asustadizo con los ruidos fuertes. Llevaba un collar azul oscuro sin placa de identificación. Tiene una pequeña cicatriz en la oreja izquierda. Se asustó con pólvora y salió corriendo en dirección al malecón. Por favor, si lo ven no intenten atraparlo bruscamente, ofrézcanle comida.
+                    </p>
+</div>
+<!-- Possible Match Alert -->
+<div class="bg-tertiary-fixed rounded-lg p-stack-sm flex items-start gap-4 border border-tertiary-fixed-dim shadow-sm mt-4">
+<div class="bg-tertiary text-on-tertiary p-2 rounded-full flex-shrink-0 mt-1">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-tertiary-fixed-variant mb-1">Posible Coincidencia Detectada</h4>
+<p class="font-caption text-caption text-on-tertiary-container mb-2">Nuestro sistema encontró un reporte de un perro similar visto hace 2 horas.</p>
+<button class="text-tertiary font-label-md text-label-md underline hover:text-on-tertiary-container transition-colors">Ver reporte sugerido</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Map & Comments -->
+<div class="lg:col-span-4 flex flex-col gap-stack-lg">
+<!-- Map Section -->
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-md text-headline-md text-on-background">Última ubicación conocida</h3>
+<div class="w-full h-48 md:h-64 rounded-lg overflow-hidden shadow-sm border border-outline-variant/30 relative">
+<div class="bg-cover bg-center w-full h-full" data-alt="A clean, minimalist style static map view of Santa Marta, Colombia. The map features a light sand and teal color palette matching a soft UI theme. A prominent, soft-shadowed terra-cotta map marker icon is placed in the center indicating the 'lost' location." data-location="Santa Marta" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBG-Y9zwmHB8HmxtJWr4exU3alCpEqkD6YSnWdPGaGGUjJ7jGv8iNmA0DbwgdOCpzwnso5ZBdPRWLB8D7kcWFldC4cz6z_cpi60zL2UG8bZtAOPCK1Fa2-Kb618bAANXWsqhX3jmPQaGxHN4uWy9BpEF1Z8iFb65ldWo5fXwTkZhkN24q-l0QuwQ0nowKjFKYdCQoexHtWU5POHPZpslPiPgXDV8UMsxkZb35llpdeIUcRRVP2Klrfy3g')"></div>
+</div>
+<p class="font-caption text-caption text-on-surface-variant text-center mt-1">Parque de los Novios, Santa Marta</p>
+</div>
+<!-- Comments Section -->
+<div class="flex flex-col gap-stack-sm bg-surface-container rounded-lg p-stack-sm shadow-sm border border-outline-variant/20">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="forum">forum</span>
+<h3 class="font-headline-md text-headline-md text-on-background">Pistas de la comunidad</h3>
+</div>
+<!-- Input -->
+<div class="flex gap-2">
+<input class="flex-1 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest font-body-md text-body-md py-2 px-3" placeholder="¿Tienes información?" type="text"/>
+<button class="bg-primary text-on-primary px-4 rounded-lg font-label-md hover:bg-on-primary-fixed-variant transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="send">send</span>
+</button>
+</div>
+<!-- Comment List -->
+<div class="flex flex-col gap-4 mt-4">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-md flex-shrink-0">
+                                M
+                            </div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-label-md text-label-md text-on-background">María G.</span>
+<span class="font-caption text-caption text-on-surface-variant">Hace 1 hora</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">
+                                    Me pareció verlo corriendo cerca de la Marina, iba muy asustado.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
