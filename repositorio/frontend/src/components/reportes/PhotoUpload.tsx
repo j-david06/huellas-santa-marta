@@ -72,14 +72,15 @@ export function PhotoUpload({
 
   return (
     <div className="w-full">
+      {/* Upload Zone */}
       <div
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
-        className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition ${
+        className={`w-full h-48 rounded-[16px] border-2 border-dashed transition-colors flex flex-col items-center justify-center gap-2 cursor-pointer ${
           isDragging
-            ? 'border-blue-500 bg-blue-50'
-            : 'border-gray-300 bg-gray-50 hover:border-blue-400'
+            ? 'border-[#9f402d] bg-[#ffdad3]/30'
+            : 'border-[#ddc0ba] bg-[#efeded] hover:bg-[#eae8e7]'
         }`}
       >
         <input
@@ -90,44 +91,47 @@ export function PhotoUpload({
           className="hidden"
           id="photo-upload"
         />
-        <label htmlFor="photo-upload" className="cursor-pointer">
-          <div className="text-4xl mb-2">📸</div>
-          <p className="text-lg font-semibold text-gray-700">
-            Arrastra fotos aquí o haz clic para seleccionar
-          </p>
-          <p className="text-sm text-gray-500 mt-2">
-            Máx. {maxFiles} fotos, {maxSizeMB}MB cada una (JPG, PNG, WebP)
-          </p>
+        <label htmlFor="photo-upload" className="cursor-pointer w-full h-full flex flex-col items-center justify-center gap-2">
+          <div className="w-16 h-16 rounded-full bg-[#e4e2e2] flex items-center justify-center group-hover:bg-[#ddc0ba]/30 transition-colors">
+            <span className="material-symbols-outlined text-[32px] text-[#89726d]">photo_camera</span>
+          </div>
+          <span className="font-body-md text-body-md text-[#56423e]">Toca para subir una imagen</span>
+          <span className="font-caption text-caption text-[#89726d]">Máx 5MB (JPG, PNG)</span>
         </label>
       </div>
 
+      {/* Error Message */}
       {error && (
-        <div className="mt-3 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+        <div className="mt-3 p-3 bg-[#ffdad6] border-2 border-[#ba1a1a] text-[#93000a] rounded-[12px] font-body-md">
           {error}
         </div>
       )}
 
+      {/* Selected Files Preview */}
       {currentFiles.length > 0 && (
         <div className="mt-6">
-          <h3 className="font-semibold mb-3">Fotos seleccionadas ({currentFiles.length}/{maxFiles})</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <h3 className="font-headline-md text-headline-md text-[#1b1c1c] mb-4">
+            Fotos seleccionadas ({currentFiles.length}/{maxFiles})
+          </h3>
+          <div className="grid grid-cols-2 gap-4">
             {currentFiles.map((file, index) => (
               <div key={index} className="relative group">
                 <img
                   src={URL.createObjectURL(file)}
                   alt={`Preview ${index}`}
-                  className="w-full h-24 object-cover rounded-lg"
+                  className="w-full h-32 object-cover rounded-[16px] border-2 border-[#ddc0ba]"
                 />
                 {onRemoveFile && (
                   <button
                     onClick={() => onRemoveFile(index)}
-                    className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
+                    className="absolute top-2 right-2 bg-[#ba1a1a] text-white rounded-full w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition font-bold shadow-md"
                     type="button"
+                    title="Eliminar foto"
                   >
                     ✕
                   </button>
                 )}
-                <p className="text-xs text-gray-600 mt-1 truncate">{file.name}</p>
+                <p className="text-caption font-caption text-[#56423e] mt-2 truncate">{file.name}</p>
               </div>
             ))}
           </div>

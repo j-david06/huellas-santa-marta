@@ -1,6 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Design System Tokens - Warm Coast Recovery */
+:root {
+  /* Colors - Surface */
+  --color-surface: #fbf9f8;
+  --color-surface-dim: #dbd9d9;
+  --color-surface-bright: #fbf9f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3f3;
+  --color-surface-container: #efeded;
+  --color-surface-container-high: #eae8e7;
+  --color-surface-container-highest: #e4e2e2;
+  
+  /* Colors - On Surface */
+  --color-on-surface: #1b1c1c;
+  --color-on-surface-variant: #56423e;
+  --color-inverse-surface: #303030;
+  --color-inverse-on-surface: #f2f0f0;
+  
+  /* Colors - Outline */
+  --color-outline: #89726d;
+  --color-outline-variant: #ddc0ba;
+  
+  /* Colors - Primary (Terra-cotta) */
+  --color-primary: #9f402d;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #e2725b;
+  --color-on-primary-container: #5a0d02;
+  --color-inverse-primary: #ffb4a5;
+  --color-primary-fixed: #ffdad3;
+  --color-primary-fixed-dim: #ffb4a5;
+  --color-on-primary-fixed: #3e0500;
+  --color-on-primary-fixed-variant: #802918;
+  
+  /* Colors - Secondary (Ocean Teal) */
+  --color-secondary: #16677a;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #a2e7fd;
+  --color-on-secondary-container: #1b697c;
+  --color-secondary-fixed: #b1ecff;
+  --color-secondary-fixed-dim: #8cd1e6;
+  --color-on-secondary-fixed: #001f27;
+  --color-on-secondary-fixed-variant: #004e5e;
+  
+  /* Colors - Tertiary */
+  --color-tertiary: #8d4f11;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #cb8241;
+  --color-on-tertiary-container: #462200;
+  --color-tertiary-fixed: #ffdcc3;
+  --color-tertiary-fixed-dim: #ffb77d;
+  --color-on-tertiary-fixed: #2f1500;
+  --color-on-tertiary-fixed-variant: #6e3900;
+  
+  /* Colors - Error */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  
+  /* Colors - Background */
+  --color-background: #fbf9f8;
+  --color-on-background: #1b1c1c;
+  
+  /* Spacing */
+  --space-base: 8px;
+  --space-gutter: 16px;
+  --space-stack-sm: 12px;
+  --space-stack-md: 24px;
+  --space-stack-lg: 48px;
+  --space-margin-mobile: 20px;
+  --space-margin-desktop: 40px;
+  
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-default: 1rem;
+  --radius-md: 1.5rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-full: 9999px;
+}
 
 * {
   margin: 0;
@@ -10,20 +94,114 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 body {
-  @apply bg-gray-50 text-gray-900;
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  @apply antialiased;
 }
 
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+}
+
+.font-headline-xl {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+}
+
+.font-headline-lg {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.font-headline-md {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.font-body-lg {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.font-body-md {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.font-label-md {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+}
+
+.font-caption {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-flex;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Links */
 a {
-  @apply text-blue-600 hover:text-blue-800 underline;
+  @apply text-primary transition-colors hover:text-primary-container;
 }
 
+/* Buttons */
 button {
   @apply transition-colors duration-200;
 }
 
+/* Inputs & Form Controls */
 input, textarea, select {
-  @apply border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  @apply border-2 border-outline-variant rounded focus:outline-none focus:border-primary focus:ring-0 transition-colors;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+/* Shadows */
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(159, 64, 45, 0.08);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 12px rgba(159, 64, 45, 0.12);
+}
+
+.shadow-lg {
+  box-shadow: 0 8px 24px rgba(159, 64, 45, 0.16);
 }

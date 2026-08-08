@@ -1,4 +1,4 @@
-'use client';
+w'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -33,76 +33,71 @@ export default function ReportesPage() {
   }, [filters]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 mb-8">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl font-bold mb-2">🐾 Feed de Reportes</h1>
-          <p className="text-blue-100">
-            Explora los reportes de mascotas perdidas y encontradas en Santa Marta
+    <div className="w-full min-h-screen bg-[#fbf9f8]">
+      {/* Main Content */}
+      <div className="px-[20px] py-[24px] flex flex-col gap-[48px]">
+        {/* Header with Title */}
+        <div>
+          <h1 className="font-headline-lg text-headline-lg text-[#1b1c1c] mb-2">Reportes Recientes</h1>
+          <p className="font-body-lg text-body-lg text-[#56423e]">
+            Explora los reportes de mascotas perdidas y encontradas
           </p>
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-4 pb-12">
-        {/* Botón crear reporte */}
-        <div className="mb-8">
-          <button
-            onClick={() => router.push('/reportes/crear')}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition"
-          >
-            + Crear Nuevo Reporte
-          </button>
         </div>
 
         {/* Filtros */}
-        <div className="bg-white p-6 rounded-lg shadow mb-8">
-          <h2 className="text-lg font-bold mb-4">Filtros</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-[#ffffff] p-6 rounded-2xl shadow-sm border border-[#ddc0ba]">
+          <h2 className="font-headline-md text-headline-md text-[#1b1c1c] mb-4">Filtros</h2>
+          <div className="grid grid-cols-1 gap-4">
             <div>
-              <label className="block text-sm font-semibold mb-2">Estado</label>
-              <select
-                value={filters.estado}
-                onChange={(e) => setFilters({ ...filters, estado: e.target.value })}
-                className="w-full border border-gray-300 rounded-lg p-2"
-              >
-                <option value="">Todos</option>
-                <option value={ReportStatus.PERDIDO}>Perdido</option>
-                <option value={ReportStatus.ENCONTRADO}>Encontrado</option>
-              </select>
+              <label className="block text-label-md font-label-md text-[#1b1c1c] mb-2">Estado</label>
+              <div className="relative">
+                <select
+                  value={filters.estado}
+                  onChange={(e) => setFilters({ ...filters, estado: e.target.value })}
+                  className="w-full rounded-[16px] border-2 border-[#ddc0ba] bg-[#ffffff] px-4 py-3 font-body-md text-body-md text-[#1b1c1c] focus:border-[#9f402d] focus:outline-none appearance-none pr-10"
+                >
+                  <option value="">Todos</option>
+                  <option value={ReportStatus.PERDIDO}>Perdido</option>
+                  <option value={ReportStatus.ENCONTRADO}>Encontrado</option>
+                </select>
+                <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-[#56423e] pointer-events-none" style={{ fontSize: '24px' }}>expand_more</span>
+              </div>
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-2">Tipo de Animal</label>
-              <select
-                value={filters.tipoAnimal}
-                onChange={(e) => setFilters({ ...filters, tipoAnimal: e.target.value })}
-                className="w-full border border-gray-300 rounded-lg p-2"
-              >
-                <option value="">Todos</option>
-                <option value={AnimalType.PERRO}>Perro</option>
-                <option value={AnimalType.GATO}>Gato</option>
-              </select>
+              <label className="block text-label-md font-label-md text-[#1b1c1c] mb-2">Tipo de Animal</label>
+              <div className="relative">
+                <select
+                  value={filters.tipoAnimal}
+                  onChange={(e) => setFilters({ ...filters, tipoAnimal: e.target.value })}
+                  className="w-full rounded-[16px] border-2 border-[#ddc0ba] bg-[#ffffff] px-4 py-3 font-body-md text-body-md text-[#1b1c1c] focus:border-[#9f402d] focus:outline-none appearance-none pr-10"
+                >
+                  <option value="">Todos</option>
+                  <option value={AnimalType.PERRO}>Perro</option>
+                  <option value={AnimalType.GATO}>Gato</option>
+                </select>
+                <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-[#56423e] pointer-events-none" style={{ fontSize: '24px' }}>expand_more</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Mensajes de estado */}
         {error && (
-          <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+          <div className="p-4 bg-[#ffdad6] border-2 border-[#ba1a1a] text-[#93000a] rounded-2xl font-body-md">
             {error}
           </div>
         )}
 
         {isLoading && (
           <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">⏳ Cargando reportes...</p>
+            <p className="text-[#56423e] text-body-lg font-body-lg">⏳ Cargando reportes...</p>
           </div>
         )}
 
         {/* Grid de reportes */}
         {!isLoading && reportes.length > 0 && (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 gap-[16px]">
               {reportes.map((reporte) => (
                 <ReportCard
                   key={reporte.id}
@@ -113,40 +108,51 @@ export default function ReportesPage() {
             </div>
 
             {/* Paginación */}
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <button
-                onClick={paginaAnterior}
-                disabled={page === 0}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700"
-              >
-                ← Anterior
-              </button>
-              <span className="text-gray-700 font-semibold">
-                Página {page + 1} de {totalPages}
-              </span>
-              <button
-                onClick={siguientePagina}
-                disabled={page >= totalPages - 1}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700"
-              >
-                Siguiente →
-              </button>
-            </div>
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-4 mt-8">
+                <button
+                  onClick={paginaAnterior}
+                  disabled={page === 0}
+                  className="px-6 py-3 bg-[#9f402d] text-white font-label-md rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#8a3626] transition-colors"
+                >
+                  ← Anterior
+                </button>
+                <span className="text-[#1b1c1c] font-label-md">
+                  Página {page + 1} de {totalPages}
+                </span>
+                <button
+                  onClick={siguientePagina}
+                  disabled={page >= totalPages - 1}
+                  className="px-6 py-3 bg-[#9f402d] text-white font-label-md rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#8a3626] transition-colors"
+                >
+                  Siguiente →
+                </button>
+              </div>
+            )}
           </>
         )}
 
         {!isLoading && reportes.length === 0 && !error && (
           <div className="text-center py-12">
-            <p className="text-gray-600 text-lg mb-4">😢 No hay reportes con los filtros seleccionados</p>
+            <p className="text-[#56423e] text-body-lg font-body-lg mb-4">😢 No hay reportes con los filtros seleccionados</p>
             <button
               onClick={() => router.push('/reportes/crear')}
-              className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition"
+              className="bg-[#9f402d] hover:bg-[#8a3626] text-white font-label-md py-3 px-6 rounded-full transition-colors"
             >
               Crear el primer reporte
             </button>
           </div>
         )}
       </div>
+
+      {/* FAB - Floating Action Button */}
+      <button
+        onClick={() => router.push('/reportes/crear')}
+        className="fixed bottom-32 right-6 md:bottom-8 md:right-8 w-14 h-14 rounded-full bg-[#9f402d] text-white shadow-lg flex items-center justify-center hover:bg-[#8a3626] active:scale-95 transition-all duration-200 z-40"
+        title="Crear nuevo reporte"
+      >
+        <span className="material-symbols-outlined text-[28px]">add</span>
+      </button>
     </div>
   );
 }

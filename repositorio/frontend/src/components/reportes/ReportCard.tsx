@@ -10,23 +10,21 @@ interface ReportCardProps {
 }
 
 export function ReportCard({ reporte, onClick }: ReportCardProps) {
-  const getStatusBadgeColor = (status: ReportLifecycleStatus) => {
+  const getStatusBadgeColor = (status: ReportStatus) => {
     switch (status) {
-      case ReportLifecycleStatus.ACTIVO:
-        return 'bg-green-100 text-green-800';
-      case ReportLifecycleStatus.RESUELTO:
-        return 'bg-blue-100 text-blue-800';
-      case ReportLifecycleStatus.ARCHIVADO:
-        return 'bg-gray-100 text-gray-800';
+      case ReportStatus.PERDIDO:
+        return 'bg-[#9f402d]';
+      case ReportStatus.ENCONTRADO:
+        return 'bg-[#16677a]';
     }
   };
 
-  const getReportStatusBadgeColor = (status: ReportStatus) => {
+  const getStatusText = (status: ReportStatus) => {
     switch (status) {
       case ReportStatus.PERDIDO:
-        return 'bg-red-100 text-red-800';
+        return 'Perdido';
       case ReportStatus.ENCONTRADO:
-        return 'bg-purple-100 text-purple-800';
+        return 'Encontrado';
     }
   };
 
@@ -44,87 +42,70 @@ export function ReportCard({ reporte, onClick }: ReportCardProps) {
   const fotoPrincipal = reporte.fotos && reporte.fotos.length > 0 ? reporte.fotos[0].url : null;
 
   return (
-    <div
+    <article
       onClick={() => onClick(reporte.id)}
-      className="bg-white rounded-lg shadow-md hover:shadow-lg transition cursor-pointer overflow-hidden"
+      className="bg-[#ffffff] rounded-[24px] shadow-sm overflow-hidden flex flex-col cursor-pointer hover:shadow-md transition-shadow border border-[#ddc0ba]"
     >
       {/* Foto Principal */}
-      <div className="relative h-48 bg-gray-200 overflow-hidden">
+      <div className="relative h-48 bg-[#e4e2e2] overflow-hidden">
         {fotoPrincipal ? (
           <img
             src={fotoPrincipal}
             alt={`${reporte.tipoAnimal} - ${reporte.color}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-t-[24px]"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gray-300 text-4xl">
+          <div className="w-full h-full flex items-center justify-center bg-[#efeded] text-4xl">
             🐾
           </div>
         )}
 
-        {/* Badges */}
-        <div className="absolute top-3 right-3 flex gap-2">
-          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getReportStatusBadgeColor(reporte.estado)}`}>
-            {reporte.estado === ReportStatus.PERDIDO ? '🔴 Perdido' : '🟣 Encontrado'}
-          </span>
-          {reporte.reportStatus !== ReportLifecycleStatus.ACTIVO && (
-            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusBadgeColor(reporte.reportStatus)}`}>
-              {reporte.reportStatus === ReportLifecycleStatus.RESUELTO ? '✓ Resuelto' : 'Archivado'}
-            </span>
-          )}
+        {/* Status Badge - Top Left */}
+        <div className={`absolute top-4 left-4 ${getStatusBadgeColor(reporte.estado)} text-white px-4 py-2 rounded-full font-label-md text-label-md uppercase h-8 flex items-center shadow-md`}>
+          {getStatusText(reporte.estado)}
         </div>
 
         {/* Fotos count */}
-        {reporte.fotos.length > 1 && (
-          <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
+        {reporte.fotos && reporte.fotos.length > 1 && (
+          <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full font-caption">
             📷 {reporte.fotos.length}
           </div>
         )}
       </div>
 
       {/* Contenido */}
-      <div className="p-4">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="font-bold text-lg">
-            {reporte.tipoAnimal === 'PERRO' ? '🐕' : '🐱'} {reporte.color}
-          </h3>
+      <div className="p-4 flex flex-col gap-3 flex-grow">
+        {/* Nombre y tipo */}
+        <div className="flex items-start justify-between gap-2">
+          <div className="flex-grow">
+            <h3 className="font-headline-md text-headline-md text-[#1b1c1c]">
+              {reporte.color}
+            </h3>
+            <p className="font-body-md text-body-md text-[#56423e]">
+              {reporte.tipoAnimal === 'PERRO' ? 'Perro' : 'Gato'}{reporte.raza ? ` • ${reporte.raza}` : ''}
+            </p>
+          </div>
           {reporte.tamaño && (
-            <span className="text-xs bg-gray-200 px-2 py-1 rounded">{reporte.tamaño}</span>
+            <span className="text-caption font-caption bg-[#efeded] text-[#56423e] px-3 py-1 rounded-full whitespace-nowrap">
+              {reporte.tamaño}
+            </span>
           )}
         </div>
 
-        {/* Raza */}
-        {reporte.raza && (
-          <p className="text-sm text-gray-600 mb-2">
-            <strong>Raza:</strong> {reporte.raza}
-          </p>
-        )}
-
-        {/* Sexo */}
-        {reporte.sexo && (
-          <p className="text-sm text-gray-600 mb-2">
-            <strong>Sexo:</strong> {reporte.sexo}
-          </p>
-        )}
-
-        {/* Ubicación */}
-        {reporte.ubicacion && (
-          <p className="text-sm text-gray-600 mb-3">
-            📍 <strong>{reporte.ubicacion.barrio || reporte.ubicacion.direccion || 'Santa Marta'}</strong>
-          </p>
-        )}
-
-        {/* Descripción Preview */}
-        <p className="text-sm text-gray-700 mb-3 line-clamp-2">
-          {reporte.descripcion}
-        </p>
-
-        {/* Footer */}
-        <div className="flex justify-between items-center text-xs text-gray-500 pt-3 border-t">
-          <span>{getTimeAgo()}</span>
-          <span>💬 {reporte.cantidadComentarios}</span>
+        {/* Ubicación y tiempo */}
+        <div className="mt-auto flex flex-col gap-2">
+          {reporte.ubicacion?.barrio || reporte.ubicacion?.direccion ? (
+            <div className="flex items-center gap-2 text-caption font-caption text-[#56423e]">
+              <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>location_on</span>
+              <span>{reporte.ubicacion.barrio || reporte.ubicacion.direccion || 'Santa Marta'}</span>
+            </div>
+          ) : null}
+          <div className="flex items-center gap-2 text-caption font-caption text-[#56423e]">
+            <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>schedule</span>
+            <span>{getTimeAgo()}</span>
+          </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
