@@ -29,6 +29,7 @@ export function useReporteForm(onSuccess?: (id: string) => void) {
   const [formData, setFormData] = useState<ReporteFormData>(INITIAL_FORM_DATA);
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [uploadingPhotos, setUploadingPhotos] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -112,11 +113,43 @@ export function useReporteForm(onSuccess?: (id: string) => void) {
       return;
     }
 
-    setIsSubmitting(true);
     setError(null);
 
     try {
-      const resultado = await reporteService.crearReporte(formData);
+      // Paso 1: Subir todas las fotos
+      if (formData.fotos.length > 0) {
+        setUploadingPhotos(true);
+        const fotosUrls: string[] = [];
+
+        for (const file of formData.fotos) {
+          try {
+            const resultado = await reporteService.subirFoto(file);
+            fotosUrls.push(resultado.url);
+          } catch (fotoError) {
+            const fotoErrorMsg = fotoError instanceof Error ? fotoError.message : 'Error al subir foto';
+            throw new Error(`Error subiendo foto ${file.name}: ${fotoErrorMsg}`);
+          }
+        }
+
+        // Actualizar fotosUrls en formData
+        setFormData((prev) => ({
+          ...prev,
+          fotosUrls,
+        }));
+
+        // Usar el valor actualizado para el siguiente paso
+        formData.fotosUrls = fotosUrls;
+      }
+
+      setUploadingPhotos(false);
+      setIsSubmitting(true);
+
+      // Paso 2: Crear reporte con las URLs de fotos
+      const resultado = await reporteService.crearReporte({
+        ...formData,
+        fotosUrls: formData.fotosUrls,
+      });
+
       setFormData(INITIAL_FORM_DATA);
       setCurrentStep(1);
       setErrors({});
@@ -125,6 +158,7 @@ export function useReporteForm(onSuccess?: (id: string) => void) {
       const errorMessage = err instanceof Error ? err.message : 'Error al crear reporte';
       setError(errorMessage);
     } finally {
+      setUploadingPhotos(false);
       setIsSubmitting(false);
     }
   }, [formData, currentStep, validateStep, onSuccess]);
@@ -140,6 +174,7 @@ export function useReporteForm(onSuccess?: (id: string) => void) {
     formData,
     currentStep,
     isSubmitting,
+    uploadingPhotos,
     error,
     errors,
     updateField,

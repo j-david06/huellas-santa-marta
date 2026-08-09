@@ -24,42 +24,49 @@ class ReporteService {
     });
   }
 
-  // Crear reporte con fotos (FormData)
-  async crearReporte(formData: ReporteFormData): Promise<Reporte> {
+  // Subir una foto individual
+  async subirFoto(file: File): Promise<{ url: string }> {
     const data = new FormData();
-    
-    // Agregar campos simples
-    data.append('tipoAnimal', formData.tipoAnimal);
-    data.append('estado', formData.estado);
-    data.append('color', formData.color);
-    data.append('tamaño', formData.tamaño);
-    data.append('sexo', formData.sexo);
-    data.append('descripcion', formData.descripcion);
-    data.append('fechaAvistamiento', formData.fechaAvistamiento);
-    data.append('latitud', formData.latitud?.toString() || '');
-    data.append('longitud', formData.longitud?.toString() || '');
-    data.append('direccion', formData.direccion);
-    data.append('barrio', formData.barrio);
-    data.append('nombreContacto', formData.nombreContacto);
-    data.append('telefonoContacto', formData.telefonoContacto);
-    data.append('emailContacto', formData.emailContacto || '');
-    
-    if (formData.raza) {
-      data.append('raza', formData.raza);
-    }
-    if (formData.señasParticulares) {
-      data.append('señasParticulares', formData.señasParticulares);
-    }
-
-    // Agregar fotos
-    formData.fotos.forEach((file, index) => {
-      data.append(`fotos`, file);
-    });
+    data.append('foto', file);
 
     try {
-      const response = await this.api.post<Reporte>('/reportes', data, {
+      const response = await this.api.post<{ url: string }>('/reportes/fotos', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
+        },
+      });
+      return response.data;
+    } catch (error) {
+      throw this.handleError(error);
+    }
+  }
+
+  // Crear reporte con fotosUrls (JSON)
+  async crearReporte(formData: ReporteFormData): Promise<Reporte> {
+    const payload = {
+      tipoAnimal: formData.tipoAnimal,
+      estado: formData.estado,
+      color: formData.color,
+      tamaño: formData.tamaño,
+      sexo: formData.sexo,
+      descripcion: formData.descripcion,
+      fechaAvistamiento: formData.fechaAvistamiento,
+      latitud: formData.latitud,
+      longitud: formData.longitud,
+      direccion: formData.direccion,
+      barrio: formData.barrio,
+      nombreContacto: formData.nombreContacto,
+      telefonoContacto: formData.telefonoContacto,
+      emailContacto: formData.emailContacto || '',
+      raza: formData.raza || '',
+      señasParticulares: formData.señasParticulares || '',
+      fotosUrls: formData.fotosUrls,
+    };
+
+    try {
+      const response = await this.api.post<Reporte>('/reportes', payload, {
+        headers: {
+          'Content-Type': 'application/json',
         },
       });
       return response.data;
