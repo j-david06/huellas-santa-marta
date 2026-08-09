@@ -59,7 +59,7 @@ class ReporteService {
       telefonoContacto: formData.telefonoContacto,
       emailContacto: formData.emailContacto || '',
       raza: formData.raza || '',
-      señasParticulares: formData.señasParticulares || '',
+      senasParticulares: formData.señasParticulares || '',
       fotosUrls: formData.fotosUrls,
     };
 

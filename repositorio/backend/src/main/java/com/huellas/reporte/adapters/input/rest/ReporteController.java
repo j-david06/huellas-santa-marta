@@ -13,7 +13,6 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/reportes")
-@CrossOrigin(origins = "*")
 public class ReporteController {
     
     private final ReporteCreationPort creationPort;
